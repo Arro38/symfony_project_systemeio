@@ -14,27 +14,19 @@ class CouponCode
     private ?int $id = null;
 
     #[ORM\Column]
-    private ?float $value = null;
+    private ?bool $isPercent = null;
+
+    #[ORM\Column(length: 50)]
+    private ?string $code = null;
 
     #[ORM\Column]
-    private ?bool $isPercent = null;
+    private ?float $discount = null;
 
     public function getId(): ?int
     {
         return $this->id;
     }
 
-    public function getValue(): ?float
-    {
-        return $this->value;
-    }
-
-    public function setValue(float $value): static
-    {
-        $this->value = $value;
-
-        return $this;
-    }
 
     public function isIsPercent(): ?bool
     {
@@ -44,6 +36,30 @@ class CouponCode
     public function setIsPercent(bool $isPercent): static
     {
         $this->isPercent = $isPercent;
+
+        return $this;
+    }
+
+    public function getCode(): ?string
+    {
+        return $this->code;
+    }
+
+    public function setCode(string $code): static
+    {
+        $this->code = $code;
+
+        return $this;
+    }
+
+    public function getDiscount(): ?float
+    {
+        return $this->discount;
+    }
+
+    public function setDiscount(float $discount): static
+    {
+        $this->discount = $discount;
 
         return $this;
     }

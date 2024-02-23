@@ -48,4 +48,15 @@ class PaymentProcessor
 
         return $this;
     }
+
+    public function pay(float $amount): void
+    {
+        if ($this->type instanceof PaypalPaymentProcessor) {
+            $this->type->pay($amount);
+        } elseif ($this->type instanceof StripePaymentProcessor) {
+            $this->type->processPayment($amount);
+        } else {
+            throw new \RuntimeException('Invalid payment processor type');
+        }
+    }
 }
