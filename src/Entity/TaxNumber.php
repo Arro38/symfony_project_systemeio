@@ -14,7 +14,7 @@ class TaxNumber
     private ?int $id = null;
 
     #[ORM\Column(length: 150)]
-    private ?string $countryName = null;
+    private ?string $countryCode = null;
 
     #[ORM\Column(length: 50)]
     private ?string $format = null;
@@ -27,14 +27,14 @@ class TaxNumber
         return $this->id;
     }
 
-    public function getCountryName(): ?string
+    public function getCountryCode(): ?string
     {
-        return $this->countryName;
+        return $this->countryCode;
     }
 
-    public function setCountryName(string $countryName): static
+    public function setCountryCode(string $countryCode): static
     {
-        $this->countryName = $countryName;
+        $this->countryCode = $countryCode;
 
         return $this;
     }

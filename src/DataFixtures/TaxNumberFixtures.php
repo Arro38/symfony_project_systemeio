@@ -11,26 +11,26 @@ class TaxNumberFixtures extends Fixture
     public function load(ObjectManager $manager): void
     {
         $germany = new TaxNumber();
-        $germany->setCountryName('Germany');
-        $germany->setFormat('DEXXXXXXXXX');
+        $germany->setCountryCode('DE');
+        $germany->setFormat('/^DE\d{9}$/');
         $germany->setValue(19);
         $manager->persist($germany);
 
         $italy = new TaxNumber();
-        $italy->setCountryName('Italy');
-        $italy->setFormat('ITXXXXXXXXXXX');
+        $italy->setCountryCode('IT');
+        $italy->setFormat('/^IT\d{11}$/');
         $italy->setValue(22);
         $manager->persist($italy);
 
         $france = new TaxNumber();
-        $france->setCountryName('France');
-        $france->setFormat('FRYYXXXXXXXXXX');
+        $france->setCountryCode('FR');
+        $france->setFormat('/^FR[A-Z]{2}\d{11}$/');
         $france->setValue(20);
         $manager->persist($france);
 
         $greece = new TaxNumber();
-        $greece->setCountryName('Greece');
-        $greece->setFormat('GRXXXXXXXXX');
+        $greece->setCountryCode('GR');
+        $greece->setFormat('/^GR\d{9}$/');
         $greece->setValue(24);
         $manager->persist($greece);
 
