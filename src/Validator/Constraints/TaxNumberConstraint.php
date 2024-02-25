@@ -8,4 +8,9 @@ use Symfony\Component\Validator\Constraint;
 class TaxNumberConstraint extends Constraint
 {
     public $message = 'The tax number "{{ value }}" is not valid.';
+
+    public function validatedBy(): string
+    {
+        return 'App\Validator\TaxNumberValidator';
+    }
 }

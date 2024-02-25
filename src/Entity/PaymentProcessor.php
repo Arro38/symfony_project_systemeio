@@ -5,6 +5,8 @@ namespace App\Entity;
 use App\Repository\PaymentProcessorRepository;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
+use Systemeio\TestForCandidates\PaymentProcessor\PaypalPaymentProcessor;
+use Systemeio\TestForCandidates\PaymentProcessor\StripePaymentProcessor;
 
 #[ORM\Entity(repositoryClass: PaymentProcessorRepository::class)]
 class PaymentProcessor

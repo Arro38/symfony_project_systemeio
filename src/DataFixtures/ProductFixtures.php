@@ -27,9 +27,4 @@ class ProductFixtures extends Fixture
 
         $manager->flush();
     }
-
-    public function getOrder()
-    {
-        return 1;
-    }
 }

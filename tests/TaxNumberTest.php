@@ -38,6 +38,7 @@ class TaxNumberValidatorTest extends KernelTestCase
             ['IT12345678901', 'IT123456789'], // 11 digits for Italy
             ['FRAB12345678901', 'FR12345678901'], // 2 letters followed by 11 digits for France
             ['GR123456789', 'GR12345678'], // 9 digits for Greece
+
         ];
     }
 
@@ -61,5 +62,14 @@ class TaxNumberValidatorTest extends KernelTestCase
             ->willReturn($this->createMock(ConstraintViolationBuilderInterface::class));
 
         $this->validator->validate($invalidTaxNumber, $this->constraint);
+    }
+
+    public function testValidateInvalidCountry()
+    {
+        $this->context->expects($this->once())
+            ->method('buildViolation')
+            ->willReturn($this->createMock(ConstraintViolationBuilderInterface::class));
+
+        $this->validator->validate('XX12345678', $this->constraint);
     }
 }

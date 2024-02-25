@@ -16,6 +16,12 @@ class CouponCodeFixtures extends Fixture
         $p10->setIsPercent(true);
         $manager->persist($p10);
 
+        $p6 = new CouponCode();
+        $p6->setCode('P6');
+        $p6->setDiscount(6);
+        $p6->setIsPercent(true);
+        $manager->persist($p6);
+
         $p100 = new CouponCode();
         $p100->setCode('P100');
         $p100->setDiscount(100);
